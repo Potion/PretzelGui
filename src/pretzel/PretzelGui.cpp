@@ -325,7 +325,12 @@ namespace pretzel
 		mWidgetList.push_back( new PretzelSaveLoad(this) );
         return (PretzelSaveLoad*)mWidgetList.back();
 	}
-    
+	
+	PretzelSaveLoad* PretzelGui::addSaveLoad( ci::fs::path filePath ) {
+		mWidgetList.push_back( new PretzelSaveLoad(this, filePath ) );
+		return (PretzelSaveLoad*)mWidgetList.back();
+	}
+	
 	PretzelToggle* PretzelGui::addToggle(std::string label, bool *value){
 		mWidgetList.push_back( new PretzelToggle(this, label, value) );
         return (PretzelToggle*)mWidgetList.back();

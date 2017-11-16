@@ -83,9 +83,8 @@ void PretzelRoot::onMouseDown(ci::app::MouseEvent &event)
     // only click the top-most gui
     for( auto it = mGuiList.begin(); it!=mGuiList.end(); ++it){
         pg = *it;
-        
-		console() << pg->getGlobalBounds() << endl;
-
+		
+		CI_LOG_V( "pg->getGlobalBounds() " << pg->getGlobalBounds()  );
         if( pg->isVisible() && pg->getGlobalBounds().contains( event.getPos() ) ){
             pg->mouseDown( event.getPos() );
             break;

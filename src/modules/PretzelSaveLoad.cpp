@@ -5,22 +5,27 @@ using namespace ci::app;
 using namespace std;
 
 namespace pretzel{
-	PretzelSaveLoad::PretzelSaveLoad(BasePretzel *parent) : BasePretzel() {
-		mBounds.set(0, 0, 200, 23);
-        type = WidgetType::SAVELOAD;
-        
-		parent->registerPretzel(this);
-		bHoverSave = false;
-		bHoverLoad = false;
-        
-        mSaveBg = mGlobal->P_TAB_COLOR;
-        mLoadBg = mGlobal->P_TAB_COLOR;
-	}
+//	PretzelSaveLoad::PretzelSaveLoad(BasePretzel *parent) : BasePretzel() {
+//		mBounds.set(0, 0, 200, 23);
+//        type = WidgetType::SAVELOAD;
+//        
+//		parent->registerPretzel(this);
+//		bHoverSave = false;
+//		bHoverLoad = false;
+//        
+//        mSaveBg = mGlobal->P_TAB_COLOR;
+//        mLoadBg = mGlobal->P_TAB_COLOR;
+//	}
 
 	PretzelSaveLoad::PretzelSaveLoad(BasePretzel *parent, fs::path savePath) : BasePretzel() {
+		mBounds.set(0, 0, 200, 23);
+		type = WidgetType::SAVELOAD;
 		parent->registerPretzel(this);
+		mSavePath = savePath;
 		bHoverSave = false;
 		bHoverLoad = false;
+		mSaveBg = mGlobal->P_TAB_COLOR;
+		mLoadBg = mGlobal->P_TAB_COLOR;
 	}
 
 	void PretzelSaveLoad::updateBounds(const ci::vec2 &offset, const ci::RectT<float> &parentBounds) {
@@ -36,11 +41,11 @@ namespace pretzel{
 
 	void PretzelSaveLoad::mouseDown(const ci::vec2 &pos){
 		if (mSaveRect.contains(pos - mOffset)){
-			mGlobal->saveSettings();
+			mGlobal->saveSettings( mSavePath );
             mSaveBg = mGlobal->P_ACTIVE_COLOR;
 		}
 		else if (mLoadRect.contains(pos - mOffset)){
-			mGlobal->loadSettings();
+			mGlobal->loadSettings( mSavePath );
             mLoadBg = mGlobal->P_ACTIVE_COLOR;
 		}
 	}

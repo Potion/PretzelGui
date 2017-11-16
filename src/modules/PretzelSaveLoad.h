@@ -9,9 +9,8 @@ namespace pretzel
 	class PretzelSaveLoad : public BasePretzel
     {
 	  public:
-		PretzelSaveLoad(BasePretzel *parent);
-		PretzelSaveLoad(BasePretzel *parent, ci::fs::path savePath);
-
+		//PretzelSaveLoad(BasePretzel *parent);
+		PretzelSaveLoad(BasePretzel *parent, ci::fs::path savePath = ci::fs::path() );
       
 		void draw() override;
 		void updateBounds(const ci::vec2 &offset, const ci::Rectf &parentBounds) override;

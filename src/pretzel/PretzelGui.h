@@ -76,6 +76,8 @@ namespace pretzel
         PretzelSlider*      addSlider(std::string label, ci::vec2 *variable, ci::vec2 min, ci::vec2 max);
         PretzelSlider*      addSlider(std::string label, ci::vec3 *variable, ci::vec3 min, ci::vec3 max);
         PretzelSaveLoad*    addSaveLoad();
+		PretzelSaveLoad*	addSaveLoad( ci::fs::path filePath );
+
 		PretzelToggle*      addToggle(std::string label, bool *value);
 		PretzelTextField*   addTextField(std::string label, std::string *variable, bool editable = true);
         PretzelEnum*        addEnum(std::string label, std::vector<std::string> *strList, int *num);

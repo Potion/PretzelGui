@@ -1,0 +1,18 @@
+{
+   "pretzelSettings" : {
+      "Circle Color" : {
+         "a" : "0.75",
+         "b" : "0.0509804",
+         "g" : "0.0509804",
+         "r" : "0.862745"
+      },
+      "Draw outline" : "0",
+      "Opacity" : "0.75",
+      "Position" : {
+         "x" : "512",
+         "y" : "384"
+      },
+      "Radius" : "25",
+      "Speech Bubble" : "Hello, world!"
+   }
+}

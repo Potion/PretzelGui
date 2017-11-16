@@ -66,12 +66,12 @@ void BasicSampleApp::setup()
     // Textfields can be editable or non-editable
     gui->addTextField("FPS", &mFps, false);
     gui->addTextField("Speech Bubble", &mBubble, true);
-    
     gui->addEnum("Choose", &mStringList, &mStringChoice);
-    
-    gui->addSaveLoad();
-    
-    gui->loadSettings();    // load the last saved settings automatically
+	
+	
+	ci::fs::path settingsPath = ci::fs::path(ci::app::getAssetPath(fs::path()).string()+"/settings/test.json");
+	gui->addSaveLoad( settingsPath ) ;
+    gui->loadSettings( settingsPath );    // load the last saved settings automatically
     
     //	gui->minimize();        // start in a minimized mode (same as double-clicking the top bar)
     
