@@ -18,7 +18,8 @@ namespace pretzel
         void mouseUp(const ci::vec2 &pos) override;
 		void mouseMoved(const ci::vec2 &pos) override;
         
-        ci::signals::Signal<void(void)>	signalOnPress;
+//        ci::signals::Signal<void(void)>	signalOnPress;
+		ci::signals::Signal<void(std::string)>	signalOnPress;
         ci::signals::ScopedConnection   mConnection;
         
       private:

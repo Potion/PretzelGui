@@ -32,7 +32,7 @@ namespace pretzel
 	void PretzelButton::mouseDown(const ci::vec2 &pos){
 		if (mBounds.contains(pos - mOffset)){
             mBgColor = mGlobal->P_ACTIVE_COLOR;
-			signalOnPress.emit();
+			signalOnPress.emit( mLabelText );
 		}
 	}
     

@@ -88,7 +88,7 @@ namespace pretzel
 		template<typename T, typename Y>
 		inline void addButton(std::string labelText, T callback, Y *callbackObject){
 			PretzelButton *newButton = new PretzelButton(this, labelText);
-			newButton->mConnection = newButton->signalOnPress.connect(std::bind(callback, callbackObject));
+			newButton->mConnection = newButton->signalOnPress.connect(std::bind(callback, callbackObject, std::placeholders::_1));
             mWidgetList.push_back( newButton );
 		}
 

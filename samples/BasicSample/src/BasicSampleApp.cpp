@@ -31,8 +31,8 @@ public:
     string mBubble;
     
     ci::ColorA mCol;
-    void onButtonPress();
-    
+	void onButtonPress( std::string msg );
+	
     std::vector<std::string>    mStringList;
     int                         mStringChoice = 0;
 };
@@ -55,7 +55,7 @@ void BasicSampleApp::setup()
     // Sliders can take ints, float, vec2, and vec3
     gui->addSlider("Position", &mPosition, vec2(0,0), getWindowSize());
     gui->addLabel("Other Settings");
-    gui->addButton("Random Color", &BasicSampleApp::onButtonPress, this);
+    gui->addButton("Random Color", &BasicSampleApp::onButtonPress, this );
     gui->addToggle("Draw outline", &bDrawOutline);
     gui->addColorPicker("Circle Color", &mCol);
     
@@ -89,8 +89,9 @@ void BasicSampleApp::mouseDown( MouseEvent event )
 {
 }
 
-void BasicSampleApp::onButtonPress()
+void BasicSampleApp::onButtonPress( std::string msg )
 {
+	ci::app::console() << "Button message-> " << msg << std::endl;
     mCol = ColorA(Rand::randFloat(), Rand::randFloat(), Rand::randFloat(), mOpacity);
 }
 
