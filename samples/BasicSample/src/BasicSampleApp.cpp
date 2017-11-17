@@ -68,7 +68,6 @@ void BasicSampleApp::setup()
     gui->addTextField("Speech Bubble", &mBubble, true);
     gui->addEnum("Choose", &mStringList, &mStringChoice);
 	
-	
 	ci::fs::path settingsPath = ci::fs::path(ci::app::getAssetPath(fs::path()).string()+"/settings/test.json");
 	gui->addSaveLoad( settingsPath ) ;
     gui->loadSettings( settingsPath );    // load the last saved settings automatically
