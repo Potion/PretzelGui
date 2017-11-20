@@ -230,6 +230,9 @@ namespace pretzel {
 			appPath /= "settings.json";
 		}
 
+		JsonTree panelSettings = JsonTree::makeObject("panelSettings");
+		ci::app::console() << "mGlobalPos " << mGlobalPos << std::endl;
+		
 		JsonTree pSettings = JsonTree::makeObject("pretzelSettings");
 		std::string tmp;
 		for (int i = 0; i < mParamList.size(); i++){

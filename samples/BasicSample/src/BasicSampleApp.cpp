@@ -3,7 +3,6 @@
 #include "cinder/gl/gl.h"
 #include "cinder/Rand.h"
 #include "cinder/CinderMath.h"
-
 #include "pretzel/PretzelGui.h"
 
 using namespace ci;
@@ -51,11 +50,19 @@ void BasicSampleApp::setup()
     mStringList = {"one", "two", "three"};
     
     gui = pretzel::PretzelGui::create("Circle settings");
-    
+	
+	
+	ci::gl::TextureRef catTexture = ci::gl::Texture::create(ci::loadImage(ci::app::loadAsset("test.jpg")));
+
+	
     // Sliders can take ints, float, vec2, and vec3
     gui->addSlider("Position", &mPosition, vec2(0,0), getWindowSize());
     gui->addLabel("Other Settings");
-    gui->addButton("Random Color", &BasicSampleApp::onButtonPress, this );
+	//gui->addLabel("test2");
+	gui->addTextureWindow("Test", catTexture );
+	
+	
+	gui->addButton("Random Color", &BasicSampleApp::onButtonPress, this );
     gui->addToggle("Draw outline", &bDrawOutline);
     gui->addColorPicker("Circle Color", &mCol);
     
@@ -102,9 +109,7 @@ void BasicSampleApp::update()
 void BasicSampleApp::draw()
 {
     gl::clear(Color(84. / 255., 166. / 255., 1));
-    
     mCol.a = mOpacity;
-    
     gl::color(mCol);
     
     if (bDrawOutline){

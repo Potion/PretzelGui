@@ -300,7 +300,14 @@ namespace pretzel
         mWidgetList.push_back( new PretzelLabel(this, labelText) );
         return (PretzelLabel*)mWidgetList.back();
 	}
-    
+	
+	// --------------------------------------------------
+	PretzelTextureWindow* PretzelGui::addTextureWindow(std::string labelText, ci::gl::TextureRef tex ){
+		mWidgetList.push_back( new PretzelTextureWindow(this, labelText, tex ) );
+		return (PretzelTextureWindow*)mWidgetList.back();
+	}
+
+	
 	PretzelSlider* PretzelGui::addSlider(std::string label, float *variable, float min, float max){
         mWidgetList.push_back( new PretzelSlider(this, label, variable, min, max) );
         return (PretzelSlider*)mWidgetList.back();

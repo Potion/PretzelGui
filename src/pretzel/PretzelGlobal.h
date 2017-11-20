@@ -49,6 +49,7 @@ namespace pretzel
         TEXTFIELD,
         TOGGLE,
         COLOR_PICKER,
+		TEXTURE,
         ENUM
     };
 
@@ -119,7 +120,8 @@ namespace pretzel
             _VEC2,
             _VEC3,
             _COLOR,
-            _COLORA
+            _COLORA,
+			_TEXTURE
         };
 
 		struct PretzelParam {
