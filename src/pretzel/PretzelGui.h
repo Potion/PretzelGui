@@ -86,7 +86,7 @@ namespace pretzel
         
         PretzelColorPicker* addColorPicker(std::string label, ci::Color *color);
         PretzelColorPicker* addColorPicker(std::string label, ci::ColorA *color);
-		PretzelTextureWindow* addTextureWindow( std::string label, ci::gl::TextureRef tex );
+		PretzelTextureWindow* addTextureWindow( std::string label, int width, int height, ci::gl::TextureRef tex );
         
 		template<typename T, typename Y>
 		inline void addButton(std::string labelText, T callback, Y *callbackObject){

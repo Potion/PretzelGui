@@ -21,7 +21,7 @@ namespace pretzel
 		friend class ScrollPane;
 		
 	public:
-		PretzelTextureWindow(BasePretzel *parent, std::string labelText, ci::gl::TextureRef tex=nullptr );
+		PretzelTextureWindow(BasePretzel *parent, std::string labelText, int width, int height, ci::gl::TextureRef tex=nullptr );
 		void draw() override;
 		void updateBounds(const ci::vec2 &offset, const ci::Rectf &parentBounds) override;
 		

@@ -302,8 +302,8 @@ namespace pretzel
 	}
 	
 	// --------------------------------------------------
-	PretzelTextureWindow* PretzelGui::addTextureWindow(std::string labelText, ci::gl::TextureRef tex ){
-		mWidgetList.push_back( new PretzelTextureWindow(this, labelText, tex ) );
+	PretzelTextureWindow* PretzelGui::addTextureWindow(std::string labelText, int width, int height, ci::gl::TextureRef tex ){
+		mWidgetList.push_back( new PretzelTextureWindow(this, labelText, width, height, tex ) );
 		return (PretzelTextureWindow*)mWidgetList.back();
 	}
 
