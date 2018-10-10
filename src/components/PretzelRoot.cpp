@@ -15,11 +15,13 @@ using namespace pretzel;
 
 void PretzelRoot::init( ci::app::WindowRef win )
 {
+	mGuiList.clear();
     connectSignals( win );
 }
 
 PretzelRoot::~PretzelRoot()
 {
+	mGuiList.clear();
     disconnectSignals();
 }
 
@@ -50,6 +52,11 @@ void PretzelRoot::disconnectSignals()
         mMouseWheelCallback.disconnect();
         mUpdateCallback.disconnect();
     }
+}
+
+void pretzel::PretzelRoot::resetGuiList()
+{
+	mGuiList.clear();
 }
 
 void PretzelRoot::addChild( PretzelGui *gui )

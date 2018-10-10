@@ -27,6 +27,7 @@ namespace pretzel
         
         void init( ci::app::WindowRef win );
         
+		void resetGuiList();
         void addChild( PretzelGui *gui );
         void update();
         
