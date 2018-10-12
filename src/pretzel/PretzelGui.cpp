@@ -44,6 +44,9 @@ namespace pretzel
 
     PretzelGui::~PretzelGui()
     {
+		// Reset gui list to prevent garbage value if pretzel is reloaded
+		PWindow()->getWindowData( mWindowRef )->mRoot->resetGuiList();
+
 		//  Remove all modules, disconnect signals
         while( mWidgetList.size() )
         {
@@ -92,7 +95,6 @@ namespace pretzel
 //        PretzelRoot* pretzelRoot = static_cast<PretzelRoot*>( pretzel()->getWindowData(mWindowRef)->mRoot );
 //        PWindowData *winData;       // TEMP TMP
 //        winData->mGuiList.push_back(this);
-		PWindow()->getWindowData( mWindowRef )->mRoot->resetGuiList();
         PWindow()->getWindowData(mWindowRef)->mRoot->addChild(this);
         
 //        PretzelRoot::getInstance()->addChild(this);
